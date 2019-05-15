@@ -1,2 +1,2 @@
 export const ADD_TODO = 'ADD_TODO';
-export const CHECK_TODO = 'CHECK_TODO';
+export const TOGGLE_TODO = 'TOGGLE_TODO';
