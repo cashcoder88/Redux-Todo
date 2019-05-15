@@ -11,13 +11,14 @@ class App extends Component {
     this.state = {
       todoNew: ''
     };
+
   }
 
   addTodo = e => {
     e.preventDefault();
     this.props.addTodo({
       value: this.state.todoNew,
-      completed: false
+      complete: false
     });
     this.setState({
       todoNew: ''
@@ -30,7 +31,9 @@ class App extends Component {
       todoNew: event.target.value
     })
   }
+ 
   render() {
+    console.log(this.props.todos)
     return (
       <div className="App">
         <h2>Cash's To-Do List</h2>
@@ -40,12 +43,14 @@ class App extends Component {
           placeholder="Add A New Todo"
           value={this.state.todoNew}
           />
+          <button onClick={this.addTodo}>Add Todo</button>
         </form>
-        <button onClick={this.addTodo}>Add Todo</button>
-
+        
+      
         <TodoList todos={this.props.todos} />
       </div>
     );
+    
   }
 }
 

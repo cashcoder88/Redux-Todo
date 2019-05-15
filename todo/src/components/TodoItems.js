@@ -3,6 +3,7 @@ import toggleTodo from '../actions';
 import { connect } from 'react-redux';
 
 
+
 class TodoItems extends React.Component {
 
     toggleComplete = e => {
@@ -22,11 +23,11 @@ class TodoItems extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-       todos: state.todos
-    };
-  };
+// const mapStateToProps = state => {
+//     return {
+//        todos: state.todos
+//     };
+//   };
 
-export default connect(mapStateToProps, { toggleTodo })(TodoItems);
+export default connect(null, { toggleTodo })(TodoItems);
 
