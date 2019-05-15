@@ -3,11 +3,13 @@ import TodoItems from './TodoItems';
 
 
 const TodoList = (props) => {
+    const todos = props.todos.map((todo, i) => <TodoItems todo={todo} key={i} index={i} />);
     return (
         <ul>
-            {props.todos.map((todo, i) => <TodoItems todo={todo} key={i} index={i}/> ) }
+            {todos}
         </ul>
     )
 }
 
 export default TodoList;
+
