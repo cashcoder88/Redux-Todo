@@ -3,6 +3,7 @@ export const TOGGLE_TODO = 'TOGGLE_TODO';
 
 
 export const addTodo = todo => {
+    console.log(todo)
     return {
         type: ADD_TODO,
         payload: todo

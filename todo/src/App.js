@@ -1,64 +1,58 @@
 import React, { Component } from 'react';
+import './App.css';
 import { connect } from 'react-redux';
 import { addTodo } from './actions';
 import TodoList from './components/TodoList';
-
-import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todoNew: ''
+      newTodo: ''
     };
-
   }
 
-  addTodo = e => {
-    e.preventDefault();
+  addTodo = event => {
+    event.preventDefault();
     this.props.addTodo({
-      value: this.state.todoNew,
+      value: this.state.newTodo,
       complete: false
     });
     this.setState({
-      todoNew: ''
-    })
+      newTodo: ''
+    });
   }
 
-  handleTodoChange = e => {
-    e.preventDefault();
+  handleTodoChange = event => {
     this.setState({
-      todoNew: event.target.value
-    })
+      newTodo: event.target.value
+    });
   }
  
   render() {
-    console.log(this.props.todos)
     return (
       <div className="App">
-        <h2>Cash's To-Do List</h2>
+      <h2>Cash's Todo Form</h2>
         <form onSubmit={this.addTodo}>
           <input
-          onChange={this.handleTodoChange}
-          placeholder="Add A New Todo"
-          value={this.state.todoNew}
+            onChange={this.handleTodoChange}
+            placeholder="new todo"
+            value={this.state.newTodo}
           />
-          <button onClick={this.addTodo}>Add Todo</button>
+          <button onClick={this.addTodo}>Add New Todo</button>
         </form>
-        
-      
         <TodoList todos={this.props.todos} />
       </div>
     );
-    
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-     todos: state.todos
+    todos: state.todos
   };
 };
 
 
 export default connect(mapStateToProps, { addTodo })(App);
+

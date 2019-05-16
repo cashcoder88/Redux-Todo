@@ -1,5 +1,5 @@
 import React from 'react';
-import toggleTodo from '../actions';
+import { toggleTodo }from '../actions';
 import { connect } from 'react-redux';
 
 
@@ -23,11 +23,6 @@ class TodoItems extends React.Component {
     }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//        todos: state.todos
-//     };
-//   };
 
 export default connect(null, { toggleTodo })(TodoItems);
 
